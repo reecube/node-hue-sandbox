@@ -4,19 +4,19 @@ const errorHandler = error => {
     console.error(`An error occurred: ${error.message}`);
 };
 
+// Middleware
 const discover = require('./middleware/discover');
 const auth = require('./middleware/auth');
+
+// Experiments
+const sunrise = require('./experiment/sunrise');
 
 (async () => {
     const bridge = await discover(huejay, errorHandler);
 
-    /**
-     * @type {Object}
-     */
     const client = await auth(huejay, bridge);
 
-    // TODO continue here
-    console.log(`TODO`, client)
+    await sunrise(client);
 })();
 
 
