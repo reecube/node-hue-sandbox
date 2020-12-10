@@ -25,8 +25,13 @@ module.exports = (huejay, bridge) => new Promise(async resolve => {
             username: bridge.auth.username,
         });
 
-        // This will fail if the user is not properly authed
-        const user = await client.users.get()
+        // The following will fail if the user is not properly authed
+
+        await client.users.get()
+
+        await client.bridge.ping()
+
+        await client.bridge.isAuthenticated()
 
         resolve(client);
     };

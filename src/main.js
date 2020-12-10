@@ -10,6 +10,9 @@ const auth = require('./middleware/auth');
 (async () => {
     const bridge = await discover(huejay, errorHandler);
 
+    /**
+     * @type {Object}
+     */
     const client = await auth(huejay, bridge);
 
     // TODO continue here
