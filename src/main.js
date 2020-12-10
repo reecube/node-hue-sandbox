@@ -5,12 +5,15 @@ const errorHandler = error => {
 };
 
 const discover = require('./middleware/discover');
+const auth = require('./middleware/auth');
 
 (async () => {
     const bridge = await discover(huejay, errorHandler);
 
+    const client = await auth(huejay, bridge);
+
     // TODO continue here
-    console.log(`TODO`, bridge)
+    console.log(`TODO`, client)
 })();
 
 

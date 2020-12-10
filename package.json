@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "dev": "nodemon .",
-    "start": "node .",
+    "dev": "nodemon --unhandled-rejections=strict .",
+    "start": "node --unhandled-rejections=strict .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
