@@ -9,7 +9,7 @@ const errorHandler = error => {
 huejay.discover(emptyOptions)
     .then(bridges => {
         for (let bridge of bridges) {
-            console.log(`Id: ${bridge.id}, IP: ${bridge.ip}`);
+            console.log(bridge);
         }
     })
     .catch(errorHandler);
