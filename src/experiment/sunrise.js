@@ -52,7 +52,7 @@ module.exports = client => new Promise(async resolve => {
             brightness: 100,
             hue: 7500,
             saturation: 200,
-            transitionTime: 10//30 * 60,
+            transitionTime: 30 * 60,
         });
     }
 

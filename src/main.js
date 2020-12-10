@@ -7,6 +7,7 @@ const errorHandler = error => {
 // Middleware
 const discover = require('./middleware/discover');
 const auth = require('./middleware/auth');
+const pause = require('./middleware/sleep');
 
 // Experiments
 const sunrise = require('./experiment/sunrise');
@@ -15,6 +16,8 @@ const sunrise = require('./experiment/sunrise');
     const bridge = await discover(huejay, errorHandler);
 
     const client = await auth(huejay, bridge);
+
+    //await pause(6,30);
 
     await sunrise(client);
 })();
