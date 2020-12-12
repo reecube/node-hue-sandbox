@@ -1,4 +1,4 @@
-module.exports = client => new Promise(async resolve => {
+module.exports = client => new Promise(async (resolve, reject) => {
     // https://github.com/sqmk/huejay#clientlightssave---save-a-lights-attributes-and-state
 
     /**
@@ -36,6 +36,12 @@ module.exports = client => new Promise(async resolve => {
     };
 
     const bedroom = await client.groups.getById(1);
+
+    if (bedroom.name !== 'Schlafzimmer') {
+        reject(new Error(`Unexpected room name '${bedroom.name}'!`));
+
+        return;
+    }
 
     for (let lightId of bedroom.lightIds) {
         await modifyLight(client, lightId, {
